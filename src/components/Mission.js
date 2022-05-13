@@ -68,6 +68,7 @@ const Mission = () => {
           <p className="card-text">
             Location: {data.launch.launch_site.site_name_long}
           </p>
+          <div className="d-flex">
           <Link
             to={`/rocket/${data.launch.rocket.rocket.id}`}
             className="btn btn-primary"
@@ -77,10 +78,12 @@ const Mission = () => {
           <button
             onClick={clickHandler}
             className="btn btn-primary"
-            style={{ marginLeft: "3px" }}
+            style={{ marginLeft: "4px" }}
           >
             Mission Details
           </button>
+          </div>
+         
           {detailLoading && <h4>Loading....</h4>}
           {detailData && !detailLoading && <p>{detailData.launch.details}</p>}
         </div>
