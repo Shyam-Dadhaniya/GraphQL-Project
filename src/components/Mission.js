@@ -72,14 +72,14 @@ const Mission = () => {
             to={`/rocket/${data.launch.rocket.rocket.id}`}
             className="btn btn-primary"
           >
-            <div>See More</div>
+            <div>Missile Details</div>
           </Link>
           <button
             onClick={clickHandler}
             className="btn btn-primary"
             style={{ marginLeft: "3px" }}
           >
-            Show Details
+            Mission Details
           </button>
           {detailLoading && <h4>Loading....</h4>}
           {detailData && !detailLoading && <p>{detailData.launch.details}</p>}
