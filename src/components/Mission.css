@@ -1,0 +1,8 @@
+.border-3{
+    border: solid black;
+    border-width: 6px !important;
+}
+
+.card{
+    font-size: 20px;
+}
