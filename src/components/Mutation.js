@@ -76,8 +76,28 @@ const Mutation = () => {
       variables: {
         id: id,
       },
+      update: (cache, { data }) => {
+        console.log(data);
+        const { users } = cache.readQuery({
+          query: FETCH_DATA,
+        });
+        console.log(users);
+        const newArray = users.filter((user) => {
+          if (user.id !== id) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        cache.writeQuery({
+          query: FETCH_DATA,
+          data: {
+            users: newArray,
+          },
+        });
+      },
       onCompleted: () => {
-        refetch();
+           // refetch();
       },
     });
   };
@@ -110,7 +130,7 @@ const Mutation = () => {
         <h1>Loading....</h1>
       ) : (
         <>
-          <form             
+          <form
             className="border mx-auto mt-3"
             style={{ width: "550px", height: "210px" }}
           >
@@ -120,7 +140,7 @@ const Mutation = () => {
                 <input
                   type="text"
                   ref={UserName}
-                  class="form-control"
+                  className="form-control"
                   placeholder="User Name"
                 />
               </div>
@@ -128,7 +148,7 @@ const Mutation = () => {
                 <input
                   type="text"
                   ref={RocketName}
-                  class="form-control"
+                  className="form-control"
                   placeholder="Rocket Name"
                 />
               </div>
@@ -145,7 +165,7 @@ const Mutation = () => {
           <ul className="list">
             {userData.users.map((user) => {
               return (
-                <>
+                <div key={Math.random().toString()}>
                   <div className="py-5">
                     <div className="container">
                       <div className="row hidden-md-up">
@@ -185,7 +205,7 @@ const Mutation = () => {
                       <br />
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </ul>
