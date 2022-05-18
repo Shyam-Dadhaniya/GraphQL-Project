@@ -158,7 +158,7 @@ const Mutation = () => {
               onClick={!update.showUpdate ? clickHandler : updateHandler}
               className="btn btn-primary mb-3"
             >
-              {!update.showUpdate ? "submit" : "update"}
+              {!update.showUpdate ? "Submit" : "Update"}
             </button>
           </form>
 
